@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-java-app-deploy
+  labels:
+    app: sample-java-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-java-app
+  template:
+    metadata:
+      name: sample-java-app
+      labels:
+        app: sample-java-app
+    spec:
+      containers:
+        - name: sample-node-app
+          image: aspeak03524/sample-java-app
+          ports:
+            - containerPort: 8080
